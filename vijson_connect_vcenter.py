@@ -8,7 +8,7 @@ NOTES
     Author:         Anders Mikkelsen
     Creation Date:  2024-09-10
 
-    Code is created based om William Lam's shell example and example from Broadcom
+    Code is created based om William Lam's Shell example and example from Broadcom
     - https://github.com/lamw/vmware-scripts/blob/master/shell/create_snapshot_for_vm.sh
     - https://developer.broadcom.com/xapis/virtual-infrastructure-json-api/latest/
     
@@ -96,8 +96,8 @@ headers = {
 response = requests.request( "GET", url, headers=headers, verify=False )
 if response.status_code == 200:
     # Convert 'b' (bytes) to json (dict) -- https://stackoverflow.com/questions/40059654/convert-a-bytes-array-into-json-format
-    snapshots_task = json.loads( ( response.content.decode('utf-8').replace("'", '"') ) )
-    print( f'Task status: { snapshots_task["state"] }' )
+    task = json.loads( ( response.content.decode('utf-8').replace("'", '"') ) )
+    print( f'Task status: { task["state"] }' )
 elif response.status_code == 500:
     print('Task complete or deleted')
     print(response.text)
